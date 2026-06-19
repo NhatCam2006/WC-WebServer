@@ -1,0 +1,35 @@
+/* ============================================
+   TeamsPage — Club grid
+   ============================================ */
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-lg);
+}
+
+.teams-count {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.04em;
+}
+
+.teams-count span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .teams-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .teams-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

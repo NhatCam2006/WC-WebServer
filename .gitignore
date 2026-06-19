@@ -1,0 +1,38 @@
+# Python virtual environments
+.venv/
+venv/
+ENV/
+epl_backend/.venv/
+
+# Python cache and compiled files
+__pycache__/
+epl_backend/app/__pycache__/
+epl_backend/app/agent/__pycache__/
+epl_backend/app/routers/__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment files (sensitive keys)
+.env
+epl_backend/.env
+
+# Node modules and package locks
+node_modules/
+epl_frontend/node_modules/
+epl_frontend/dist/
+dist/
+build/
+.eslintcache
+
+# IDE settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db

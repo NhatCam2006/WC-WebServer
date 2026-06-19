@@ -1,0 +1,58 @@
+/* ============================================
+   MatchdaySelector — Horizontal scrolling matchday picker
+   ============================================ */
+
+.matchday-selector {
+  margin-bottom: var(--space-xl);
+}
+
+.matchday-scroll {
+  display: flex;
+  gap: var(--space-xs);
+  overflow-x: auto;
+  padding: var(--space-xs) 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.matchday-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.matchday-btn {
+  flex-shrink: 0;
+  padding: var(--space-sm) var(--space-md);
+  min-width: 44px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.matchday-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-card-hover);
+  border-color: var(--border-card-hover);
+}
+
+.matchday-btn.active {
+  color: #0A0A0B;
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.matchday-btn.all-btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}

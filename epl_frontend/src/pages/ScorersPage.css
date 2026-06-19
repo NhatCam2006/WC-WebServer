@@ -1,0 +1,429 @@
+/* ============================================
+   ScorersPage — Top Goal Scorers Overhaul
+   ============================================ */
+
+.scorers-podium-container {
+  margin-bottom: var(--space-3xl);
+  perspective: 1000px;
+}
+
+.scorers-podium {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr 1fr;
+  gap: var(--space-xl);
+  align-items: end;
+  max-width: 850px;
+  margin: 0 auto;
+  padding-top: var(--space-2xl);
+}
+
+/* Podium Cards base */
+.podium-card {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: var(--space-xl) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.podium-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Stepped Heights */
+.podium-gold {
+  min-height: 290px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border-color: rgba(255, 215, 0, 0.2);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.podium-gold:hover {
+  border-color: rgba(255, 215, 0, 0.45);
+  box-shadow: 0 20px 50px rgba(255, 215, 0, 0.15), 0 5px 25px rgba(0, 0, 0, 0.4);
+}
+
+.podium-silver {
+  min-height: 250px;
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%);
+  border-color: rgba(192, 192, 192, 0.15);
+  box-shadow: 0 10px 30px rgba(192, 192, 192, 0.04), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.podium-silver:hover {
+  border-color: rgba(192, 192, 192, 0.35);
+  box-shadow: 0 15px 40px rgba(192, 192, 192, 0.1), 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.podium-bronze {
+  min-height: 235px;
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%);
+  border-color: rgba(205, 127, 50, 0.15);
+  box-shadow: 0 10px 30px rgba(205, 127, 50, 0.04), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.podium-bronze:hover {
+  border-color: rgba(205, 127, 50, 0.35);
+  box-shadow: 0 15px 40px rgba(205, 127, 50, 0.1), 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Rank Tag */
+.podium-rank-tag {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 12px;
+  border-radius: var(--radius-full);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-card);
+  color: var(--text-secondary);
+}
+
+.podium-gold .podium-rank-tag {
+  color: #ffd700;
+  border-color: rgba(255, 215, 0, 0.3);
+  background: rgba(255, 215, 0, 0.08);
+}
+
+/* Medal emoji indicator */
+.podium-badge {
+  font-size: 1.8rem;
+  margin-bottom: var(--space-xs);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.podium-gold .podium-badge {
+  font-size: 2.4rem;
+}
+
+/* Avatar & crest stack */
+.podium-avatar-wrapper {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  margin-bottom: var(--space-md);
+}
+
+.podium-gold .podium-avatar-wrapper {
+  width: 96px;
+  height: 96px;
+}
+
+.podium-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background: var(--bg-secondary);
+}
+
+.podium-gold .podium-avatar {
+  border-color: #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3), 0 4px 12px rgba(0,0,0,0.3);
+}
+.podium-silver .podium-avatar {
+  border-color: #c0c0c0;
+}
+.podium-bronze .podium-avatar {
+  border-color: #cd7f32;
+}
+
+.podium-team-crest {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-card);
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.podium-gold .podium-team-crest {
+  width: 30px;
+  height: 30px;
+  bottom: -6px;
+  right: -6px;
+}
+
+/* Info */
+.podium-info {
+  margin-bottom: var(--space-md);
+}
+
+.podium-name {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.podium-gold .podium-name {
+  font-size: 1.25rem;
+}
+
+.podium-team-name {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+/* Goal Bubble */
+.podium-goals-badge {
+  background: rgba(204, 255, 0, 0.08);
+  border: 1px solid rgba(204, 255, 0, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 4px 16px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.podium-gold .podium-goals-badge {
+  background: rgba(204, 255, 0, 0.12);
+  border-color: rgba(204, 255, 0, 0.35);
+  box-shadow: 0 4px 12px rgba(204, 255, 0, 0.1);
+}
+
+.goals-num {
+  font-family: var(--font-score);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.podium-gold .goals-num {
+  font-size: 2.1rem;
+}
+
+.goals-unit {
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.podium-assists {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+/* Table styles */
+.scorers-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-card);
+  background: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.scorers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+}
+
+.scorers-table thead tr {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border-card);
+}
+
+.scorers-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.scorers-table th.col-goals,
+.scorers-table th.col-assists,
+.scorers-table th.col-pens,
+.scorers-table th.col-played {
+  text-align: center;
+}
+
+.scorer-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all var(--transition-fast);
+}
+
+.scorer-row:last-child {
+  border-bottom: none;
+}
+
+.scorer-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.scorers-table td {
+  padding: 16px 20px;
+  vertical-align: middle;
+}
+
+/* Rank */
+.col-rank {
+  width: 60px;
+  text-align: center;
+}
+
+.rank-badge {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+}
+
+/* Player */
+.scorer-player-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.scorer-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2.5px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-secondary);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.scorer-row:hover .scorer-avatar {
+  transform: scale(1.05);
+}
+
+.scorer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scorer-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.scorer-row:hover .scorer-name {
+  color: var(--accent);
+}
+
+.scorer-nat {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+/* Team */
+.scorer-team-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.scorer-team-crest {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Goals / Stats */
+.col-goals,
+.col-assists,
+.col-pens,
+.col-played {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.goals-count {
+  font-family: var(--font-score);
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 10px rgba(204, 255, 0, 0.15);
+}
+
+.scorers-error {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .scorers-podium {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: stretch;
+    max-width: 400px;
+  }
+  
+  .podium-card {
+    min-height: auto !important;
+    padding: var(--space-lg);
+  }
+  
+  .podium-gold {
+    order: -1; /* Place Rank 1 on top in mobile column flow */
+  }
+
+  .col-pens,
+  .col-played {
+    display: none;
+  }
+
+  .scorer-nat {
+    display: none;
+  }
+
+  .scorers-table th,
+  .scorers-table td {
+    padding: 12px 12px;
+  }
+}

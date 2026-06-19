@@ -1,0 +1,51 @@
+/* ============================================
+   LiveBadge — Pulsing LIVE indicator
+   ============================================ */
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  background: var(--live-red-dim);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--live-red);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--live-red);
+  border-radius: 50%;
+  animation: livePulse 1.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.5);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 4px rgba(255, 59, 48, 0);
+  }
+}
+
+/* Variants */
+.live-badge.large {
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  gap: 6px;
+}
+
+.live-badge.large .live-dot {
+  width: 8px;
+  height: 8px;
+}

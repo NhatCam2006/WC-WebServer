@@ -1,0 +1,118 @@
+.notfound-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-xl);
+}
+
+.notfound-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(204, 255, 0, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.notfound-content {
+  text-align: center;
+  z-index: 1;
+  max-width: 480px;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.notfound-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: var(--space-xl);
+  font-family: var(--font-score);
+  font-size: clamp(5rem, 18vw, 9rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--accent);
+  text-shadow: 0 0 40px rgba(204, 255, 0, 0.25);
+}
+
+.notfound-ball {
+  font-size: 0.55em;
+  animation: spin 3s linear infinite;
+  display: inline-block;
+  filter: drop-shadow(0 0 12px rgba(204,255,0,0.3));
+}
+
+.notfound-title {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+}
+
+.notfound-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-2xl);
+}
+
+.notfound-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.notfound-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #0A0A0B;
+  border-radius: var(--radius-md);
+  padding: 10px 22px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.notfound-btn-primary:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.notfound-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 10px 22px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.notfound-btn-secondary:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-card-hover);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .notfound-score {
+    font-size: 5rem;
+  }
+}

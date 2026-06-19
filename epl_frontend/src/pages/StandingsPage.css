@@ -1,0 +1,173 @@
+/* ============================================
+   StandingsPage — World Cup Layout Styles
+   ============================================ */
+
+.standings-layout {
+  display: grid;
+  grid-template-columns: 3fr 1.1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.standings-main-content {
+  min-width: 0;
+}
+
+/* Standings Groups Grid */
+.standings-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.group-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.group-card:hover {
+  border-color: var(--border-card-hover);
+  box-shadow: var(--shadow-base);
+}
+
+.group-title {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--wc-navy);
+  margin-bottom: var(--space-sm);
+  border-left: 3px solid var(--accent);
+  padding-left: var(--space-xs);
+  line-height: 1.2;
+}
+
+/* Sidebar */
+.standings-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  min-width: 0;
+}
+
+/* Sidebar cards */
+.sidebar-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.sidebar-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-base);
+}
+
+.sidebar-section-title {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--wc-navy);
+  margin-bottom: var(--space-md);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-card);
+}
+
+/* Qualification Rules */
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.rule-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.rule-color-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.rule-color-bullet.qualify {
+  background: var(--wc-green);
+  box-shadow: 0 0 6px var(--wc-green);
+}
+.rule-color-bullet.playoff {
+  background: var(--draw-amber);
+  box-shadow: 0 0 6px var(--draw-amber);
+}
+.rule-color-bullet.eliminated {
+  background: var(--live-red);
+  box-shadow: 0 0 6px var(--live-red);
+}
+
+.rule-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.rule-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.rule-desc {
+  font-size: 0.725rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+/* League Stats List */
+.league-stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.league-stats-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-card);
+  font-size: 0.85rem;
+}
+
+.league-stats-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.league-stats-list .stat-label {
+  color: var(--text-secondary);
+}
+
+.league-stats-list .stat-val {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 992px) {
+  .standings-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}

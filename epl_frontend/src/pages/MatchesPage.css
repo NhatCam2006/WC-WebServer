@@ -1,0 +1,159 @@
+/* ============================================
+   MatchesPage — World Cup Style Listing
+   ============================================ */
+
+.matches-header {
+  margin-bottom: var(--space-xl);
+}
+
+/* Stage Navigation Tabs */
+.stage-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border-card);
+  padding-bottom: var(--space-sm);
+}
+
+.stage-tab-btn {
+  padding: 8px 16px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.stage-tab-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.stage-tab-btn.active {
+  background: var(--wc-navy);
+  color: #FFFFFF;
+  border-color: var(--wc-navy);
+}
+
+/* Sub Filters Container */
+.sub-filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.filter-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.filter-select {
+  padding: 6px 12px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  outline: none;
+  min-width: 130px;
+}
+
+.filter-select:hover {
+  border-color: var(--border-card-hover);
+}
+
+/* Matchday Filter Pills */
+.matchday-pills {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.matchday-pill-btn {
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-weight: bold;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.matchday-pill-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.matchday-pill-btn.active {
+  background: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+}
+
+/* Matches Listings */
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.matches-count {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-md);
+}
+
+.matches-count span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.timeline-badge {
+  background: var(--accent-dim);
+  color: var(--accent);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  font-size: 0.65rem;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+  .matches-grid {
+    grid-template-columns: 1fr;
+  }
+  .sub-filters-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

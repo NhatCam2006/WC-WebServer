@@ -1,0 +1,239 @@
+/* ============================================
+   StandingsTable — World Cup Group Table Styles
+   ============================================ */
+
+.standings-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-card);
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.standings-table {
+  width: 100%;
+  min-width: 480px;
+}
+
+/* Header */
+.standings-table thead th {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  padding: 12px 10px;
+  text-align: center;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border-card);
+  background: var(--bg-tertiary);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.standings-table thead th:first-child,
+.standings-table thead th:nth-child(2) {
+  text-align: left;
+}
+
+.standings-table thead th:first-child {
+  padding-left: var(--space-md);
+  width: 36px;
+}
+
+.standings-table thead th:nth-child(2) {
+  width: auto;
+}
+
+/* Rows */
+.standings-table tbody tr {
+  border-bottom: 1px solid var(--border-card);
+  transition: background var(--transition-fast);
+}
+
+.standings-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.standings-table tbody tr:hover {
+  background: var(--bg-primary);
+}
+
+.standings-table td {
+  padding: var(--space-sm);
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  vertical-align: middle;
+}
+
+/* Position column */
+.standings-pos {
+  font-family: var(--font-score);
+  font-size: 1.05rem;
+  text-align: center !important;
+  padding-left: var(--space-md) !important;
+  min-width: 32px;
+  font-weight: bold;
+}
+
+/* Zone indicators */
+.standings-pos.zone-qualify {
+  color: var(--wc-green);
+}
+
+.standings-pos.zone-playoff {
+  color: var(--draw-amber);
+}
+
+.standings-pos.zone-eliminated {
+  color: var(--live-red);
+}
+
+/* Zone bar on left */
+.standings-table tbody tr.zone-qualify-row td:first-child {
+  box-shadow: inset 3px 0 0 var(--wc-green);
+}
+
+.standings-table tbody tr.zone-playoff-row td:first-child {
+  box-shadow: inset 3px 0 0 var(--draw-amber);
+}
+
+.standings-table tbody tr.zone-eliminated-row td:first-child {
+  box-shadow: inset 3px 0 0 var(--live-red);
+}
+
+/* Team cell */
+.standings-team-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: left !important;
+  text-decoration: none;
+  color: inherit;
+}
+
+.standings-team-cell:hover .standings-team-name,
+.standings-team-cell:hover .standings-team-shortname {
+  color: var(--accent);
+}
+
+.standings-team-crest {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.standings-team-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.standings-team-shortname {
+  display: none;
+}
+
+/* Points column */
+.standings-points {
+  font-family: var(--font-score);
+  font-size: 1.15rem;
+  color: var(--text-primary) !important;
+  letter-spacing: 0.02em;
+  font-weight: bold;
+}
+
+/* Goal difference */
+.standings-gd {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.standings-gd.positive {
+  color: var(--wc-green);
+}
+
+.standings-gd.negative {
+  color: var(--live-red);
+}
+
+/* Form column */
+.standings-form {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+}
+
+.form-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.form-dot.W {
+  background: var(--wc-green);
+}
+
+.form-dot.D {
+  background: var(--draw-amber);
+}
+
+.form-dot.L {
+  background: var(--live-red);
+}
+
+/* Zone legend */
+.standings-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: 10px var(--space-md);
+  border-top: 1px solid var(--border-card);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+}
+
+.legend-color {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .standings-team-name {
+    display: none;
+  }
+
+  .standings-team-shortname {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  .standings-table thead th:nth-child(n+8),
+  .standings-table td:nth-child(n+8) {
+    display: none;
+  }
+}

@@ -1,0 +1,62 @@
+/* Skeleton Match Card */
+.skeleton-match-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.skeleton-mc-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skeleton-mc-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.skeleton-mc-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.skeleton-mc-score {
+  flex-shrink: 0;
+}
+
+/* Skeleton Standing Row */
+.skeleton-standing-row td {
+  padding: 10px 8px;
+  vertical-align: middle;
+}
+
+.skeleton-standing-team {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Skeleton Scorer Row */
+.skeleton-scorer-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.skeleton-scorer-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
