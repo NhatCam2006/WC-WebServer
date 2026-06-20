@@ -25,7 +25,7 @@ def sync_all_base_data(db: Session = Depends(get_db)):
     )
 
 # 2. API hiển thị: Lấy danh sách toàn bộ các câu lạc bộ bóng đá trong DB
-@router.get("/teams", summary="Lấy danh sách 20 đội bóng EPL")
+@router.get("/teams", summary="Lấy danh sách các đội tuyển quốc gia World Cup 2026")
 def get_all_teams(db: Session = Depends(get_db)):
     teams = db.query(models.Team).order_by(models.Team.name.asc()).all()
     return {"status": "success", "count": len(teams), "data": teams}

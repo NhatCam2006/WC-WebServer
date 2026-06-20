@@ -6,7 +6,7 @@ from app import models, services
 router = APIRouter()
 
 
-@router.get("/scorers", summary="Lấy danh sách Vua phá lưới Premier League")
+@router.get("/scorers", summary="Lấy danh sách Vua phá lưới World Cup 2026")
 def get_scorers(db: Session = Depends(get_db)):
     scorers = db.query(models.Scorer).order_by(models.Scorer.goals.desc()).all()
     result = []
